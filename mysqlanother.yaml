@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysqlexported
+  namespace: monitoramento
+spec:
+  type: ExternalName
+  externalName: wordpress.default.svc.cluster.local
+  ports:
+  - port: 9104

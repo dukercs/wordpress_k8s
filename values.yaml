@@ -1,0 +1,21 @@
+grafana:
+  additionalDataSources:
+  - access: proxy
+    isDefault: false
+    name: loki
+    orgId: 1
+    type: loki
+    url: http://loki:3100
+    version: 1
+  adminPassword: HpXFiOVp
+  adminUser: admin
+
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: apachewordpress
+        static_configs:
+          - targets: ['apacheexported:9117']
+      - job_name: mysqlwordpress
+        static_configs:
+          - targets: ['mysqlexported:9104']

@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: wordpress
+  namespace: wordpress
   labels:
     app: wordpress
 spec:
@@ -9,6 +10,20 @@ spec:
     - name: apache
       port: 80
       targetPort: 80
+  selector:
+    app: wordpress
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exportadores
+  namespace: wordpress
+  labels:
+    app: wordpress
+spec:
+  ports:
     - name: apacheexposer
       port: 9117
       targetPort: 9117
@@ -18,11 +33,12 @@ spec:
   selector:
     app: wordpress
     tier: frontend
-  type: LoadBalancer
+  clusterIP: None
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  namespace: wordpress
   name: wp-pv-claim
   labels:
     app: wordpress
@@ -37,6 +53,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
+  namespace: wordpress
   labels:
     app: wordpress
 spec:

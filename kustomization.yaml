@@ -1,7 +1,11 @@
 secretGenerator:
 - name: chaves
+  namespace: wordpress
   envs:
   - .env.secret
 resources:
+  - namespaces.yaml
   - mysql-deployment.yaml
   - wordpress-deployment.yaml
+  - mysqlanother.yaml
+  - apacheanother.yaml
