@@ -55,13 +55,6 @@ spec:
                   key: mysql_root
             - name: MYSQL_DATABASE
               value: wordpress
-            # - name: MYSQL_USER
-            #   value: wordpress
-            # - name: MYSQL_PASSWORD
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: chaves
-            #       key: mysql_user
           resources:
             limits:
               cpu: 1000m
