@@ -1,0 +1,7 @@
+secretGenerator:
+- name: chaves
+  envs:
+  - .env.secret
+resources:
+  - mysql-deployment.yaml
+  - wordpress-deployment.yaml
