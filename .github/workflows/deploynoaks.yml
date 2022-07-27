@@ -33,12 +33,33 @@ jobs:
          kubeconfig: ${{ secrets.aks_wordpressaks_kubeConfig }}
       id: login
 
-    - name: testar
-      # run: kubectl get pods --all-namespaces -o wide
-      run: |
-        az aks command invoke \
-        --resource-group wordpressrg \
-        --name wordpress-aks \
-        --command "kubectl apply -k ."
+    - name: lista dir
+      run: ls
 
-    
+    # - name: Criar ambiente wordpress com kustomize
+    #   run: |
+    #     az aks command invoke \
+    #     --resource-group wordpressrg \
+    #     --name wordpress-aks \
+    #     --command "kubectl apply -k ."
+
+    # - name: Instalar loki
+    #   run: |
+    #     az aks command invoke \
+    #     --resource-group wordpressrg \
+    #     --name wordpress-aks \
+    #     --command "helm upgrade --install loki --version 2.6.5 --namespace=monitoramento grafana/loki-stack --create-namespace"
+
+    # - name: Aguardar loki
+    #   run: |
+    #     az aks command invoke \
+    #     --resource-group wordpressrg \
+    #     --name wordpress-aks \
+    #     --command "while [[ $(kubectl -n monitoramento get pods -l app=loki -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done"
+
+    # - name: Instalar prometheus com values.yaml
+    #   run: |
+    #     az aks command invoke \
+    #     --resource-group wordpressrg \
+    #     --name wordpress-aks \
+    #     --command "helm upgrade --install prometheus --version 36.2.0 --namespace monitoramento prometheus-community/kube-prometheus-stack -f values.yaml"
