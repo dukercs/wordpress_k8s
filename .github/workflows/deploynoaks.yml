@@ -36,14 +36,14 @@ jobs:
     - name: lista dir
       run: | 
         ls
-        sleep 30
+        sleep 2
 
-    # - name: Criar ambiente wordpress com kustomize
-    #   run: |
-    #     az aks command invoke \
-    #     --resource-group wordpressrg \
-    #     --name wordpress-aks \
-    #     --command "kubectl apply -k ."
+    - name: Criar ambiente wordpress com kustomize
+      run: |
+        az aks command invoke \
+        --resource-group wordpressrg \
+        --name wordpress-aks \
+        --command "kubectl apply -k $GITHUB_WORKSPACE"
 
     # - name: Instalar loki
     #   run: |
