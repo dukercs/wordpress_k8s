@@ -7,8 +7,7 @@ grafana:
     type: loki
     url: http://loki:3100
     version: 1
-  adminPassword: HpXFiOVp
-  adminUser: admin
+  adminUser: dukercs
 
 prometheus:
   prometheusSpec:

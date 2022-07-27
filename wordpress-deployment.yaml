@@ -93,8 +93,8 @@ spec:
               value: wordpress
           resources:
             limits:
-              cpu: 500m
-              memory: 256Mi
+              cpu: 1000m
+              memory: 512Mi
             requests:
               cpu: 250m
               memory: 128Mi
