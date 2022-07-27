@@ -44,6 +44,7 @@ jobs:
         --resource-group wordpressrg \
         --name wordpress-aks \
         --command "kubectl apply -k ./"
+        --file .
 
     # - name: Instalar loki
     #   run: |
