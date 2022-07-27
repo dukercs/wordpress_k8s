@@ -1,0 +1,31 @@
+on: workflow_dispatch
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: dukercsmcr1.azurecr.io
+        username: ${{ secrets.acr_dukercsmcr1_username }}
+        password: ${{ secrets.acr_dukercsmcr1_password }}
+    
+    - name: Build and push image to ACR
+      id: build-image
+      run: |
+        docker build "$GITHUB_WORKSPACE/imagem" -f  "imagem/Dockerfile" -t dukercsmcr1.azurecr.io/wordpressaks:1.10 --label dockerfile-path=imagem/Dockerfile
+        docker push dukercsmcr1.azurecr.io/wordpressaks:1.10
+
+    - uses: azure/setup-kubectl@v1
+      id: install 
+
+    - uses: azure/k8s-set-context@v1
+      with:
+         kubeconfig: ${{ secrets.aks_wordpressaks_kubeConfig }}
+      id: login
+
+    - name: testar
+      run: kubectl get pods --all-namespaces -o wide
+
+    
