@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "wordpressaks-74e6"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "wordpressaks-74e6"
+  template:
+    metadata:
+      labels:
+        app: "wordpressaks-74e6"
+    spec:
+      containers:
+        - name: "wordpressaks-74e6"
+          image: "dukercsmcr1.azurecr.io/wordpressaks"
+          ports:
+          - containerPort: 80
