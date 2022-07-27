@@ -19,11 +19,11 @@ jobs:
 
 
 
-    - name: Build and push image to ACR
-      id: build-image
-      run: |
-        docker build "$GITHUB_WORKSPACE/imagem" -f  "imagem/Dockerfile" -t dukercsmcr1.azurecr.io/wordpressaks:1.10 --label dockerfile-path=imagem/Dockerfile
-        docker push dukercsmcr1.azurecr.io/wordpressaks:1.10
+    # - name: Build and push image to ACR
+    #   id: build-image
+    #   run: |
+    #     docker build "$GITHUB_WORKSPACE/imagem" -f  "imagem/Dockerfile" -t dukercsmcr1.azurecr.io/wordpressaks:1.10 --label dockerfile-path=imagem/Dockerfile
+    #     docker push dukercsmcr1.azurecr.io/wordpressaks:1.10
 
     - uses: azure/setup-kubectl@v1
       id: install 
