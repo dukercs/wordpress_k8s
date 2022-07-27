@@ -34,6 +34,11 @@ jobs:
       id: login
 
     - name: testar
-      run: kubectl get pods --all-namespaces -o wide
+      # run: kubectl get pods --all-namespaces -o wide
+      run: |
+        az aks command invoke \
+        --resource-group wordpressrg \
+        --name wordpress-aks \
+        --command "kubectl get pods -n kube-system"
 
     
