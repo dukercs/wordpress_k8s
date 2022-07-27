@@ -39,6 +39,6 @@ jobs:
         az aks command invoke \
         --resource-group wordpressrg \
         --name wordpress-aks \
-        --command "kubectl get pods -n kube-system"
+        --command "kubectl apply -k ."
 
     
