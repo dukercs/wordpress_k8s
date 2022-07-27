@@ -43,7 +43,7 @@ jobs:
         az aks command invoke \
         --resource-group wordpressrg \
         --name wordpress-aks \
-        --command "kubectl apply -k ./"
+        --command "kubectl apply -k ./" \
         --file .
 
     # - name: Instalar loki
