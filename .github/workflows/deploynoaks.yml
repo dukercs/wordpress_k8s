@@ -43,7 +43,7 @@ jobs:
         az aks command invoke \
         --resource-group wordpressrg \
         --name wordpress-aks \
-        --command "kubectl apply -k $GITHUB_WORKSPACE"
+        --command "kubectl apply -k ./"
 
     # - name: Instalar loki
     #   run: |
