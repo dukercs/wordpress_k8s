@@ -5,6 +5,6 @@ metadata:
   namespace: monitoramento
 spec:
   type: ExternalName
-  externalName: wordpress.default.svc.cluster.local
+  externalName: exportadores.wordpress.svc.cluster.local
   ports:
   - port: 9104
