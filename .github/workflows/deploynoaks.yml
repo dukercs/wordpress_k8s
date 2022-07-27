@@ -4,13 +4,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    
+
+      # Login no azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.ACESSO_AZURE }}
+
     - uses: azure/docker-login@v1
       with:
         login-server: dukercsmcr1.azurecr.io
         username: ${{ secrets.acr_dukercsmcr1_username }}
         password: ${{ secrets.acr_dukercsmcr1_password }}
-    
+
+
+
     - name: Build and push image to ACR
       id: build-image
       run: |
