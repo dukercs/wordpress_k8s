@@ -26,7 +26,9 @@ docker build -t dukercs/wordpress:1.10
 docker push dukercs/wordpress:1.10
 ```
 ## Criar o ambiente com o kustomize<br />
-<i> k apply -k ./ </i><br />
+```console
+k apply -k ./
+```
 Ele criará os namespaces e a aplicação wordpress com a imagem feita<br />
 Namespaces: wordpress e monitoramento <br />
 
