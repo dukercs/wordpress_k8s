@@ -5,6 +5,7 @@ secretGenerator:
   - .env.secret
 resources:
   - namespaces.yaml
+  - volumePersistente.yaml
   - mysql-deployment-stateful.yaml
   - wordpress-deployment.yaml
   - mysqlanother.yaml
