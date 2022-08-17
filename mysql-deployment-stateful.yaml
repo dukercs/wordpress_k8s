@@ -62,6 +62,7 @@ spec:
       name: mysql-persistent-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: ""
       resources:
         requests:
           storage: 300M
